@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ChatApp/backend/src/main/java/com/example/backend/Model/ChatModel.java&apos; to &apos;ThemeModel.java&apos;" description="Rename resource &apos;ChatModel.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="backend/src/main/java/com/example/backend/Model/ChatModel.java" name="ThemeModel.java" stamp="1644469295967" updateReferences="true"/>
+</session>
