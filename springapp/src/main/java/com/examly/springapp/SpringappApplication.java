@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SpringappApplication {
-
+	//test commit 2
 	public static void main(String[] args) {
 		SpringApplication.run(SpringappApplication.class, args);
 	}
