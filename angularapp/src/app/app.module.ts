@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login-Register/login/login.componen
 import { RegisterComponent } from './components/login-Register/register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DisplayComponent } from './components/display/display.component';
 
 
 const appRoutes:Routes = [
@@ -28,7 +29,8 @@ const appRoutes:Routes = [
     PortfolioComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,

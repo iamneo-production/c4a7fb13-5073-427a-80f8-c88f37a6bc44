@@ -17,9 +17,9 @@ export class LoginComponent{
     
   }
 
-  ngOnInit() {
+  /*ngOnInit() {
     this.modalService.open(this.content);
-  }
+  }*/
 
 
   

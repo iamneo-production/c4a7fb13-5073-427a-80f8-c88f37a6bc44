@@ -1,0 +1,8 @@
+.searchBar input[type="text"] {
+  float: middle;
+  padding: 6px;
+  border: none;
+  margin-top: 10px;
+  margin-right: 15px;
+  font-size: 15px;
+}
