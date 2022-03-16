@@ -5,7 +5,6 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [NgbModalConfig, NgbModal]
 })
 export class LoginComponent{
   isLoad = false;
@@ -17,16 +16,8 @@ export class LoginComponent{
     
   }
 
-  ngOnInit() {
-    this.modalService.open(this.content);
-  }
-
-
   
 
-  open(content:any) {
-    console.log(content);
-    this.modalService.open(content);
-  }
+
 
 }

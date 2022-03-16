@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -12,6 +13,7 @@ import { LoginComponent } from './components/login-Register/login/login.componen
 import { RegisterComponent } from './components/login-Register/register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddThemeComponent } from './components/admin/add-theme/add-theme.component';
 
 
 const appRoutes:Routes = [
@@ -28,13 +30,16 @@ const appRoutes:Routes = [
     PortfolioComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddThemeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

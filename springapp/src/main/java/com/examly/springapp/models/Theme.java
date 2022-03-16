@@ -15,34 +15,33 @@ public class Theme {
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
 
-    private String name;
+    private String themeName;
     private String photographerDetails; //only name as of now
     private String videographerDetails; //only name as of now
-    private String themeReturnGift;
+    private String returnGift;
     private int themeCost;
     private String themeDescription;
 
-    public Theme(
-            String id, String name, String photographerDetails, String videographerDetails, String themeReturnGift, int themeCost, String themeDescription) {
-        this.id = id;
-        this.name = name;
-        this.photographerDetails = photographerDetails;
-        this.videographerDetails = videographerDetails;
-        this.themeReturnGift = themeReturnGift;
-        this.themeCost = themeCost;
-        this.themeDescription = themeDescription;
-    }
-
-    public Theme(String name, String photographerDetails, String videographerDetails, String themeReturnGift, int themeCost, String themeDescription) {
-        this.name = name;
-        this.photographerDetails = photographerDetails;
-        this.videographerDetails = videographerDetails;
-        this.themeReturnGift = themeReturnGift;
-        this.themeCost = themeCost;
-        this.themeDescription = themeDescription;
-    }
-
     public Theme() {
+    }
+
+    public Theme(String themeName, String photographerDetails, String videographerDetails, String returnGift, int themeCost, String themeDescription) {
+        this.themeName = themeName;
+        this.photographerDetails = photographerDetails;
+        this.videographerDetails = videographerDetails;
+        this.returnGift = returnGift;
+        this.themeCost = themeCost;
+        this.themeDescription = themeDescription;
+    }
+
+    public Theme(String id, String themeName, String photographerDetails, String videographerDetails, String returnGift, int themeCost, String themeDescription) {
+        this.id = id;
+        this.themeName = themeName;
+        this.photographerDetails = photographerDetails;
+        this.videographerDetails = videographerDetails;
+        this.returnGift = returnGift;
+        this.themeCost = themeCost;
+        this.themeDescription = themeDescription;
     }
 
     public String getId() {
@@ -53,12 +52,12 @@ public class Theme {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getThemeName() {
+        return themeName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setThemeName(String themeName) {
+        this.themeName = themeName;
     }
 
     public String getPhotographerDetails() {
@@ -77,12 +76,12 @@ public class Theme {
         this.videographerDetails = videographerDetails;
     }
 
-    public String getThemeReturnGift() {
-        return themeReturnGift;
+    public String getReturnGift() {
+        return returnGift;
     }
 
-    public void setThemeReturnGift(String themeReturnGift) {
-        this.themeReturnGift = themeReturnGift;
+    public void setReturnGift(String returnGift) {
+        this.returnGift = returnGift;
     }
 
     public int getThemeCost() {
@@ -99,18 +98,5 @@ public class Theme {
 
     public void setThemeDescription(String themeDescription) {
         this.themeDescription = themeDescription;
-    }
-
-    @Override
-    public String toString() {
-        return "Theme{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", photographerDetails='" + photographerDetails + '\'' +
-                ", videograpgerDetails='" + videographerDetails + '\'' +
-                ", themeReturnGift='" + themeReturnGift + '\'' +
-                ", themeCost=" + themeCost +
-                ", thremeDescription='" + themeDescription + '\'' +
-                '}';
     }
 }
