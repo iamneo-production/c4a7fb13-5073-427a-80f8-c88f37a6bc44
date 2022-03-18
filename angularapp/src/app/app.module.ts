@@ -14,6 +14,7 @@ import { RegisterComponent } from './components/login-Register/register/register
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddThemeComponent } from './components/admin/add-theme/add-theme.component';
+import { DeleteThemeComponent } from './components/admin/delete-theme/delete-theme.component';
 
 
 const appRoutes:Routes = [
@@ -31,7 +32,8 @@ const appRoutes:Routes = [
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    AddThemeComponent
+    AddThemeComponent,
+    DeleteThemeComponent
   ],
   imports: [
     BrowserModule,

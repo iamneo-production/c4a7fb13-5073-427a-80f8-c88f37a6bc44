@@ -19,8 +19,9 @@ public class AdminController {
         adminService.addTheme(theme);
     }
 
-    @DeleteMapping("/deleteTheme")
-    public void deleteTheme(@RequestParam String id){
+
+    @DeleteMapping("/deleteTheme/{id}")
+    public void deleteTheme(@PathVariable String id){
         adminService.deleteTheme(id);
     }
 }

@@ -16,4 +16,9 @@ export class ThemeServiceService {
     console.log(`Model: ${themeModel.themeName} ${themeModel.photographerDetails}`);
     return this._httpClient.post(this._url+'addTheme',themeModel);
   }
+
+  deleteTheme(themeId:string){
+    console.log(`"Theme Id: " ${themeId}`);
+    return this._httpClient.delete(this._url+"deleteTheme/"+themeId)
+  }
 }

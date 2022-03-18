@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import { ThemeServiceService } from 'src/app/services/theme-service.service';
 import { ThemeModel } from './../../../models/ThemeModel';
 
@@ -11,7 +11,11 @@ import { ThemeModel } from './../../../models/ThemeModel';
 })
 export class AddThemeComponent implements OnInit {
 
+  ngbModelRef!: NgbModalRef ;
+
   constructor(private modalService: NgbModal, private themeService:ThemeServiceService) {}
+
+  
 
   themeModel: ThemeModel = {
     themeName: "",
@@ -31,7 +35,7 @@ export class AddThemeComponent implements OnInit {
   
 
   sendRequest(){
-    
+      this.ngbModelRef.close();
       this.themeService.addTheme(this.themeModel)
         .subscribe(
           (res) => {
@@ -43,11 +47,15 @@ export class AddThemeComponent implements OnInit {
   }
 
   open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.ngbModelRef = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+    
+    /*
+    this.ngbModelRef.result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+    */
   }
 
   private getDismissReason(reason: any): string {
