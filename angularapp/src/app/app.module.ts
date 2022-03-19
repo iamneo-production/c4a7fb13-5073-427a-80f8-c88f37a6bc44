@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,15 +13,13 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login-Register/login/login.component';
 import { RegisterComponent } from './components/login-Register/register/register.component';
+import { HomePageComponent } from './home-page/home-page.component';
 import { RouterModule, Routes } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { NgModule } from '@ng-bootstrap/ng-bootstrap';
 import { DisplayComponent } from './components/display/display.component';
 
+import { AllServiceService } from './services/all-service.service';
 
-const appRoutes:Routes = [
-  {path: 'login', component:LoginComponent} ,
-  {path: 'register', component:RegisterComponent}
-]
 
 @NgModule({
   declarations: [
@@ -30,15 +31,17 @@ const appRoutes:Routes = [
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    DisplayComponent
+    DisplayComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    RouterModule.forRoot(appRoutes)
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AllServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

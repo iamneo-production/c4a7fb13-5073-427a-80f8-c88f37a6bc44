@@ -15,9 +15,11 @@ public class AuthService {
     public String doLogin(String email,String password) throws Exception{
         Auth auth = authRepo.findByEmail(email);
         if(auth == null){
+            System.out.println(email);
             throw new Exception("User not found");
         }
         else if(!auth.getPassword().equals(password)){
+            System.out.println(password);
             throw new Exception("Password is incorrect");
         }
         return auth.getId() + " " + auth.getRoles().toString() ;
