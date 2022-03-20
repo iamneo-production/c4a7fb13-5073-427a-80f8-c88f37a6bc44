@@ -21,4 +21,13 @@ export class ThemeServiceService {
     console.log(`"Theme Id: " ${themeId}`);
     return this._httpClient.delete(this._url+"deleteTheme/"+themeId)
   }
+
+  getTheme(themeId:string){
+    return this._httpClient.get<ThemeModel>(this._url+"getTheme/"+themeId);
+  }
+
+  updateTheme(themeId:String,themeModal:ThemeModel){
+    console.log("Inside Service: ", themeId, themeModal)
+    return this._httpClient.put(this._url+"updateTheme/"+themeId,themeModal);
+  }
 }

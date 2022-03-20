@@ -37,4 +37,13 @@ public class AdminService {
         return "Delete Successful";
     }
 
+    public Theme getTheme(String id){
+        System.out.println("____________------------"+ themeRepo.getOne(id).toString()+"------------____________");
+        return themeRepo.findById(id).get();
+    }
+
+    public String updateTheme(Theme theme){
+        themeRepo.save(theme);
+        return "Updated";
+    }
 }

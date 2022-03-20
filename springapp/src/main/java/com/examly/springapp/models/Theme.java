@@ -99,4 +99,17 @@ public class Theme {
     public void setThemeDescription(String themeDescription) {
         this.themeDescription = themeDescription;
     }
+
+    @Override
+    public String toString() {
+        return "Theme{" +
+                "id='" + id + '\'' +
+                ", themeName='" + themeName + '\'' +
+                ", photographerDetails='" + photographerDetails + '\'' +
+                ", videographerDetails='" + videographerDetails + '\'' +
+                ", returnGift='" + returnGift + '\'' +
+                ", themeCost=" + themeCost +
+                ", themeDescription='" + themeDescription + '\'' +
+                '}';
+    }
 }

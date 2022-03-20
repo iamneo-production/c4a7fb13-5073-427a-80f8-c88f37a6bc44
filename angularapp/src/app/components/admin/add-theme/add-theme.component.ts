@@ -48,7 +48,7 @@ export class AddThemeComponent implements OnInit {
 
   open(content: any) {
     this.ngbModelRef = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
-    
+    console.log(content);
     /*
     this.ngbModelRef.result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
