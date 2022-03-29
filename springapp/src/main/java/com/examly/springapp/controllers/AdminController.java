@@ -1,7 +1,7 @@
 package com.examly.springapp.controllers;
 
-import com.examly.springapp.models.AddOns;
-import com.examly.springapp.services.AddOnsService;
+import com.examly.springapp.models.FoodItems;
+import com.examly.springapp.services.FoodItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,36 +15,31 @@ import java.util.List;
 public class AdminController {
 
     @Autowired
-    private AddOnsService addOnsService;
+    private FoodItemsService foodItemsService;
 
-    @PostMapping("/addAddon")
-    public ResponseEntity<AddOns> saveAddOn(@RequestBody AddOns addOns){
-        return new ResponseEntity<>(addOnsService.saveAddOns(addOns), HttpStatus.CREATED);
+    @PostMapping("/addFoodItem")
+    public ResponseEntity<FoodItems> addFoodItem(@RequestBody FoodItems foodItems){
+        return new ResponseEntity<>(foodItemsService.addFoodItems(foodItems), HttpStatus.CREATED);
     }
 
-    @GetMapping("/getAddon")
-    public ResponseEntity<List<AddOns>> getAllAddOns(){
-        return new ResponseEntity<>(addOnsService.getAllAddOns(), HttpStatus.OK);
+    @GetMapping("/getAllFoodItem/")
+    public ResponseEntity<List<FoodItems>> getAllFoodItems(){
+        return new ResponseEntity<>(foodItemsService.getAllFoodItems(),HttpStatus.OK);
     }
 
-    @GetMapping("/addOn/{id}")
-    public ResponseEntity<AddOns> AddOnById(@PathVariable String id) throws Exception {
-        try {
-            return new ResponseEntity<>(addOnsService.AddOnsById(id),HttpStatus.OK);
-        }
-        catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+    @GetMapping("/getFoodItem/{id}")
+    public ResponseEntity<FoodItems> getFoodItemById(@PathVariable String id){
+        return new ResponseEntity<>(foodItemsService.getFoodItemById(id),HttpStatus.OK);
     }
 
-    @PutMapping("/editAddon")
-    public ResponseEntity<AddOns> updateAddOns(@RequestBody AddOns addOns){
-        return new ResponseEntity<>(addOnsService.updateAddOns(addOns),HttpStatus.CREATED);
+    @PutMapping("/updateFooditem")
+    public ResponseEntity<FoodItems> updateFoodItems(@RequestBody FoodItems foodItems){
+        return new ResponseEntity<>(foodItemsService.updateFoodItem(foodItems),HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/deleteAddon/{id}")
-    public ResponseEntity<?> deleteAddOn(@PathVariable String id){
-        addOnsService.deleteAddOns(id);
+    @DeleteMapping("/deleteFoodItem/{id}")
+    public ResponseEntity<FoodItems> deleteFoodItems(@PathVariable String id){
+        foodItemsService.deleteFoodItems(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

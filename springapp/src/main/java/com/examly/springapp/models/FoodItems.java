@@ -1,36 +1,38 @@
 package com.examly.springapp.models;
 
+import com.examly.springapp.enums.FoodType;
 import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class AddOns {
+public class FoodItems {
 
     @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
     private String name;
-    private String description;
-    private long cost;
+    private FoodType category;
+    private int cost;
 //    Image will be added later
 
 
-    public AddOns() {
+    public FoodItems() {
     }
 
-    public AddOns(String name, String description, long cost) {
+    public FoodItems(String name, FoodType category, int cost) {
         this.name = name;
-        this.description = description;
+        this.category = category;
         this.cost = cost;
     }
 
-    public AddOns(String id, String name, String description, long cost) {
+    public FoodItems(String id, String name, FoodType category, int cost) {
         this.id = id;
         this.name = name;
-        this.description = description;
+        this.category = category;
         this.cost = cost;
     }
 
@@ -50,28 +52,28 @@ public class AddOns {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public FoodType getCategory() {
+        return category;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCategory(FoodType category) {
+        this.category = category;
     }
 
-    public long getCost() {
+    public int getCost() {
         return cost;
     }
 
-    public void setCost(long cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
     @Override
     public String toString() {
-        return "AddOns{" +
+        return "FoodItems{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
+                ", category=" + category +
                 ", cost=" + cost +
                 '}';
     }
