@@ -14,13 +14,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login-Register/login/login.component';
 import { RegisterComponent } from './components/login-Register/register/register.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { MainComponent } from './admin/theme/main/main.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
+import { MainComponent } from './admin/menu/main/main.component';
 
 import { AllServiceService } from './services/all-service.service';
-import { AdminServiceService } from './services/admin/admin-service.service';
-import { AddComponent } from './admin/theme/add/add.component';
-
+import {AdminServiceService} from './services/admin/admin-service.service';
+import { AddComponent } from './admin/menu/add/add.component';
 
 
 @NgModule({
@@ -34,9 +33,9 @@ import { AddComponent } from './admin/theme/add/add.component';
     LoginComponent,
     RegisterComponent,
     HomePageComponent,
-    MainComponent,
     NavbarComponent,
-    AddComponent,    
+    MainComponent,
+    AddComponent,
   ],
   imports: [
     BrowserModule,

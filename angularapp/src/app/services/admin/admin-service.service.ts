@@ -7,11 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class AdminServiceService {
 
-  private _url = "http://localhost:8080/admin/";
+  private _url = "http://localhost:8080/admin";
   constructor(private _httpClient:HttpClient) { }
 
-  getAllAddOns(): Observable<any>{
-    return this._httpClient.get(this._url + "getAddon");
+  getAllFoodItems() : Observable<any>{
+    return this._httpClient.get(this._url+"/getAllFoodItem");
+  }
+
+  deleteFoodItems(id:String) : Observable<any>{
+    return this._httpClient.delete(this._url+"/deleteFoodItem/"+id);
   }
 
 }

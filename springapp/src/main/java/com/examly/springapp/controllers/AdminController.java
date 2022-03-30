@@ -22,14 +22,18 @@ public class AdminController {
         return new ResponseEntity<>(foodItemsService.addFoodItems(foodItems), HttpStatus.CREATED);
     }
 
-    @GetMapping("/getAllFoodItem/")
+    @GetMapping("/getAllFoodItem")
     public ResponseEntity<List<FoodItems>> getAllFoodItems(){
         return new ResponseEntity<>(foodItemsService.getAllFoodItems(),HttpStatus.OK);
     }
 
     @GetMapping("/getFoodItem/{id}")
     public ResponseEntity<FoodItems> getFoodItemById(@PathVariable String id){
-        return new ResponseEntity<>(foodItemsService.getFoodItemById(id),HttpStatus.OK);
+        FoodItems foodItems = foodItemsService.getFoodItemById(id);
+        if(foodItems == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(foodItems,HttpStatus.OK);
     }
 
     @PutMapping("/updateFooditem")
@@ -38,8 +42,8 @@ public class AdminController {
     }
 
     @DeleteMapping("/deleteFoodItem/{id}")
-    public ResponseEntity<FoodItems> deleteFoodItems(@PathVariable String id){
+    public ResponseEntity<List<FoodItems>> deleteFoodItems(@PathVariable String id){
         foodItemsService.deleteFoodItems(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(foodItemsService.getAllFoodItems(),HttpStatus.OK);
     }
 }
