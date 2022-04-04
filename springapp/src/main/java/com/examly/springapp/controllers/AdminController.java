@@ -36,7 +36,7 @@ public class AdminController {
         return new ResponseEntity<>(foodItems,HttpStatus.OK);
     }
 
-    @PutMapping("/updateFooditem")
+    @PutMapping("/updateFoodItem")
     public ResponseEntity<FoodItems> updateFoodItems(@RequestBody FoodItems foodItems){
         return new ResponseEntity<>(foodItemsService.updateFoodItem(foodItems),HttpStatus.CREATED);
     }

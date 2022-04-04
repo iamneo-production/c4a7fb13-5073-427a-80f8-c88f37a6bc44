@@ -1,1 +1,24 @@
-<p>add works!</p>
+<div>
+    <app-navbar></app-navbar>
+    <div class="d-flex justify-content-center align-items-center h-80">
+        <form class="w-50">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="foodItem.name" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select class="form-control" [(ngModel)]="foodItem.category" name="category">
+                    <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" name="price" [(ngModel)]="foodItem.cost" required>
+            </div>
+            <div class="form-group d-flex justify-content-center">
+                <button class="btn btn-primary" (click)="onSubmit($event)">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

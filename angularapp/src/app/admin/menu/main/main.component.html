@@ -1,9 +1,23 @@
 <div class="w-100 h-100">
     <app-navbar></app-navbar>    
-    <div class="container-fluid ">
-        <div class="card w-25 my-2" *ngFor="let foodItem of foodItems">
+    <div class="my-4 d-flex flex-row justify-content-around">
+        <div class="w-50 mx-5 d-flex">
+            <input type="text" class="form-control mx-2" placeholder="Search Item" [(ngModel)]="searchValue" name="searchValue">
+            <button class="btn btn-link btn-set" (click)="searchItem($event)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
+        </div>
+        <button class="btn-danger pd d-flex" (click)="addItem()">
+            <p>Add Menu</p>
+        </button>
+    </div>
+    <div class="container-fluid">
+        <div class="card w-25 my-3 mx-5" *ngFor="let foodItem of foodItems">
             <div class="card-body ">
                 <h5 class="card-title">{{foodItem.name}}</h5>
+                <p>{{foodItem.category}}</p>
                 <div class="d-flex">
                     <p class="card-text w-75">{{foodItem.cost}}</p>
                     <button class="btn btn-primary d-flex justify-content-center align-items-center mx-1" (click) = "updateItem(foodItem.id)">
