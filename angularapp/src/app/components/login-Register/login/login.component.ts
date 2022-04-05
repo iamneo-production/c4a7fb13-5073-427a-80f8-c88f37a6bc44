@@ -7,7 +7,6 @@ import { LoginModel } from './../../../models/LoginModel';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [NgbModalConfig, NgbModal]
 })
 export class LoginComponent{
   isLoad = false;

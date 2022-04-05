@@ -1,0 +1,79 @@
+<ng-template #content let-modal>
+    <div class="container">
+        <div class="row">
+          <div class="card">
+            <div class="text-center">
+              <h1>Update Theme</h1>
+            </div>
+            <form>
+                <div class="form-group">
+                  <label for="theme-id">Theme Id</label>
+                  <input type="text" class="form-control" id="theme-id" aria-describedby="emailHelp" placeholder="Enter Theme id" [(ngModel)]="themeId" name="themeName">  
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="sendRequest()">Go</button>
+    </div>
+  </ng-template>
+  
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Update Theme</button>
+  
+  <hr>
+  
+  <pre>{{ closeResult }}</pre>
+
+  <ng-template #content1 let-modal>
+    <div class="container">
+        <div class="row">
+          <div class="card">
+            <div class="text-center">
+              <h1>Add Theme</h1>
+            </div>
+            <form>
+              <form>
+                <div class="form-group">
+                  <label for="theme-name">Enter Theme Name</label>
+                  <input type="text" class="form-control" id="theme-name" aria-describedby="emailHelp" placeholder="Enter Theme Name" [(ngModel)]="themeModel.themeName" name="themeName">
+                  
+                </div>
+                <div class="form-group">
+                  <label for="theme-image-url">Enter Image URL</label>
+                  <input type="text" class="form-control" id="theme-url" aria-describedby="emailHelp" placeholder="Enter Theme URL" [(ngModel)]="themeModel.imegeUrl" name="imageUrl">
+                </div>
+                <div class="form-group">
+                  <label for="photographer-detail">Photographer's Details</label>
+                  <input type="text" class="form-control" id="photographer-detail" aria-describedby="emailHelp" placeholder="Enter Photographer's Details" [(ngModel)]="themeModel.photographerDetails" name="photographerDetails">
+                </div>
+                <div class="form-group">
+                  <label for="videographer-details">Videographer's Details</label>
+                  <input type="text" class="form-control" id="videographer-details" aria-describedby="emailHelp" placeholder="Enter videographer's Details" [(ngModel)]="themeModel.videographerDetails" name="videographerDetails">
+                </div>
+                <div class="form-group">
+                  <label for="theme-return-gift">Theme Return Gift</label>
+                  <input type="text" class="form-control" id="theme-return-gift" placeholder="Enter Theme's return gift" [(ngModel)]="themeModel.returnGift" name="returnGift">
+                </div>
+                <div class="form-group">
+                    <label for="theme-cost">Theme Cost</label>
+                    <input type="number" class="form-control" id="theme-cost" placeholder="Enter Theme Cost" [(ngModel)]="themeModel.themeCost" name="themeCost">
+                  </div>
+                  <div class="form-group">
+                    <label for="theme-description">Theme Description</label>
+                    <input type="text" class="form-control" id="theme-description" placeholder="Enter Theme Description" [(ngModel)]="themeModel.themeDescription" name="themeDescription">
+                  </div>
+              </form>
+            </form>
+            <a style="color: #fff;" routerLink="/login">Already registered? Click to signin</a>
+          </div>
+        </div>
+      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="updateTheme()">Add Theme</button>
+    </div>
+  </ng-template>
+  
+  <hr>
+  
+  <pre>{{ closeResult }}</pre>

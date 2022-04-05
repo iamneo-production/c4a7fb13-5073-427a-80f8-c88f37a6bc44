@@ -16,6 +16,10 @@ import { RegisterComponent } from './components/login-Register/register/register
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
 import { MainComponent } from './admin/menu/main/main.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AddThemeComponent } from './components/admin/add-theme/add-theme.component';
+import { DeleteThemeComponent } from './components/admin/delete-theme/delete-theme.component';
+import { UpateThemeComponent } from './components/admin/upate-theme/upate-theme.component';
 
 import { AllServiceService } from './services/all-service.service';
 import {AdminServiceService} from './services/admin/admin-service.service';
@@ -36,6 +40,9 @@ import { AddComponent } from './admin/menu/add/add.component';
     NavbarComponent,
     MainComponent,
     AddComponent,
+    AddThemeComponent,
+    DeleteThemeComponent,
+    UpateThemeComponent
   ],
   imports: [
     BrowserModule,
