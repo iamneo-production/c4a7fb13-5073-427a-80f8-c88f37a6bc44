@@ -52,9 +52,10 @@ public class AdminController {
     }
 
     @DeleteMapping("/deleteFoodItem/{id}")
-    public ResponseEntity<List<FoodItems>> deleteFoodItems(@PathVariable String id){
+    public ResponseEntity<List<FoodItems>> deleteFoodItems(@PathVariable String id) {
         foodItemsService.deleteFoodItems(id);
-        return new ResponseEntity<>(foodItemsService.getAllFoodItems(),HttpStatus.OK);
+        return new ResponseEntity<>(foodItemsService.getAllFoodItems(), HttpStatus.OK);
+    }
 
     @GetMapping("/getTheme/{id}")
     public Theme getTheme(@PathVariable String id){
@@ -62,14 +63,12 @@ public class AdminController {
     }
     @PostMapping("/addTheme")
     public void addTheme(@RequestBody Theme theme){
-        System.out.println(theme.toString());
         adminService.addTheme(theme);
     }
 
     @PutMapping("/updateTheme/{id}")
     public void updateTheme(@PathVariable String id,@RequestBody Theme theme){
         theme.setId(id);
-        System.out.println("____________------------"+ "Inside put Mappint"+"------------____________");
         adminService.updateTheme(theme);
     }
     @DeleteMapping("/deleteTheme/{id}")
