@@ -1,3 +1,4 @@
+
 package com.examly.springapp;
 
 import org.springframework.boot.SpringApplication;
