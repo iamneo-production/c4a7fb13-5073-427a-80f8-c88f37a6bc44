@@ -17,8 +17,9 @@ public class AdminService {
     @Autowired
     private AuthRepo authRepo ;
 
-    public Admin addAdmin(Admin admin) {
-        return adminRepo.save(admin);
+    public String addAdmin(Admin admin) {
+         adminRepo.save(admin);
+         return "Successfull";
     }
 
     public CustomerResponse getAdmin(String email) {

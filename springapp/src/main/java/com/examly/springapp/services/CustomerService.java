@@ -17,8 +17,10 @@ public class CustomerService {
     private AuthRepo authRepo;
     
 
-    public Customer addCustomer(Customer customer) {
-        return customerRepo.save(customer);
+    public  String  addCustomer(Customer customer) {
+       
+       customerRepo.save(customer);
+       return "Successsfull";
     }
     public List<Auth> getCustomers() {
         System.out.println("customers service");
