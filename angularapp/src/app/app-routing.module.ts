@@ -5,14 +5,18 @@ import { LoginComponent } from './components/login-Register/login/login.componen
 import { RegisterComponent } from './components/login-Register/register/register.component';
 import { MainComponent } from './admin/menu/main/main.component';
 import { AddComponent } from './admin/menu/add/add.component';
-
+import {DashboardComponent} from './admin/dashboard/dashboard.component';
+import { AddThemeComponent } from './components/admin/add-theme/add-theme.component';
+import { WrapperComponent } from './components/admin/wrapper/wrapper.component';
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent},
-
+  {path: "admin", component: DashboardComponent},
   { path: "admin/menu", component: MainComponent},
   {path: "admin/menu/:id", component: AddComponent},
   { path: "", component: HomePageComponent },
+  {path: "admin/addTheme", component: AddThemeComponent},
+  {path: "test", component: WrapperComponent}
 ];
 
 @NgModule({

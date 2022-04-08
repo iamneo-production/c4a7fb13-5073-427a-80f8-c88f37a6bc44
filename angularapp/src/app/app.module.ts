@@ -24,6 +24,8 @@ import { UpateThemeComponent } from './components/admin/upate-theme/upate-theme.
 import { AllServiceService } from './services/all-service.service';
 import {AdminServiceService} from './services/admin/admin-service.service';
 import { AddComponent } from './admin/menu/add/add.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { WrapperComponent } from './components/admin/wrapper/wrapper.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { AddComponent } from './admin/menu/add/add.component';
     AddComponent,
     AddThemeComponent,
     DeleteThemeComponent,
-    UpateThemeComponent
+    UpateThemeComponent,
+    DashboardComponent,
+    WrapperComponent
   ],
   imports: [
     BrowserModule,
