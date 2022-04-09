@@ -11,13 +11,5 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  display = false;
-  onPress() {
-    //this.display = true;
-
-    //To toggle the component
-    console.log("clicked dashboard");
-    this.display = !this.display;
-  }
 
 }

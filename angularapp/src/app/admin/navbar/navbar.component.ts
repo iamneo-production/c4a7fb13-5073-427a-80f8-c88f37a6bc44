@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardComponent } from '../dashboard/dashboard.component';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,19 +8,29 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private dashboard: DashboardComponent) { }
+  constructor(private _router:Router) { }
 
   ngOnInit(): void {
   }
 
-  display = false;
-  onPress() {
-    //this.display = true;
-
-    //To toggle the component
-    console.log("clicked Navbar");
-    this.dashboard.onPress();
-    this.display = !this.display;
+  onPress(e:any) {
+    switch (e.target.outerText) {
+      case "Theme":
+        this._router.navigate(['admin/theme']);
+        break;
+      case "Menu":
+        this._router.navigate(['admin/menu']);
+        break;
+      case "Add ons":
+        console.log("Add ons Pressed");
+        break;
+      case "Logout":
+        console.log("Logout Pressed");
+        break;
+      default:
+        console.log("Default Pressed");
+        break;
+    }
   }
 
 }
