@@ -6,6 +6,8 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import java.util.Arrays;
 
 @Entity
 public class FoodItems {
@@ -18,22 +20,26 @@ public class FoodItems {
     private FoodType category;
     private int cost;
 //    Image will be added later
+    @Lob
+    private byte[] image;
 
 
     public FoodItems() {
     }
 
-    public FoodItems(String name, FoodType category, int cost) {
+    public FoodItems(String name, FoodType category, int cost, byte[] image) {
         this.name = name;
         this.category = category;
         this.cost = cost;
+        this.image = image;
     }
 
-    public FoodItems(String id, String name, FoodType category, int cost) {
+    public FoodItems(String id, String name, FoodType category, int cost, byte[] image) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.cost = cost;
+        this.image = image;
     }
 
     public String getId() {
@@ -68,6 +74,14 @@ public class FoodItems {
         this.cost = cost;
     }
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "FoodItems{" +
@@ -75,6 +89,7 @@ public class FoodItems {
                 ", name='" + name + '\'' +
                 ", category=" + category +
                 ", cost=" + cost +
+                ", image=" + Arrays.toString(image) +
                 '}';
     }
 }

@@ -16,6 +16,7 @@
     <div class="container-fluid">
         <div class="card w-25 my-3 mx-5" *ngFor="let foodItem of foodItems">
             <div class="card-body ">
+                <img src="{{foodItem.image}}"  alt="{{foodItem.name}}" class="card-img-top img-height">
                 <h5 class="card-title">{{foodItem.name}}</h5>
                 <p>{{foodItem.category}}</p>
                 <div class="d-flex">
