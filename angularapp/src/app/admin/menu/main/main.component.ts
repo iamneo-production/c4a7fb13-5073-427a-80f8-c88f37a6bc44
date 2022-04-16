@@ -22,8 +22,11 @@ export class MainComponent implements OnInit {
 	getAllFoodItems(){
 		this._service.getAllFoodItems().subscribe(
 			(data:FoodItems[])=>{
-				console.log(data);
-				this.foodItems=data;
+				for(let i=0;i<data.length;i++){
+					data[i].image = "data:image/jpeg;base64," + data[i].image;
+					this.foodItems.push(data[i]);
+				}
+				console.log(this.foodItems);
 			},
 			(error:any)=>{
 			console.log(error);

@@ -3,4 +3,5 @@ export interface FoodItems {
     name:String,
     category:String,
     cost:number,
+    image: ArrayBuffer | null | never[] | string
 }

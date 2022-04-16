@@ -1,3 +1,4 @@
+import { Byte } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { FoodItems } from 'src/app/models/FoodItems';
@@ -14,7 +15,8 @@ export class AddComponent implements OnInit {
     id:"",
     name:"",
     category:"",
-    cost:0
+    cost:0,
+    image:null
   }
   id:String | null = ""
   categories:String[] = ["VEG","NONVEG","BEVERAGE"] 
@@ -52,13 +54,27 @@ export class AddComponent implements OnInit {
       this._service.updateFoodItem(this.foodItem).subscribe(
         (data:any)=>{
           console.log(data);
-          this._router.navigate(['/admin/menu']);
+          // this._router.navigate(['/admin/menu']);
         },
         (error:any)=>{
           console.log(error);
         }
       )
     }        
+  }
+
+  onChangeFile(e:any){
+    // Convert image to byte array
+    const reader = new FileReader();
+    reader.onload = () => {
+      let temp = reader.result;
+      if(temp){
+        this.foodItem.image = temp.slice(temp.toString().indexOf(',') + 1);
+      }
+    }    
+    if(e.target.files && e.target.files.length > 0) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
   }
 
 }
