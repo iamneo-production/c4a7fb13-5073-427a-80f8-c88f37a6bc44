@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AddonService } from './addon.service';
 import { HttpClientModule } from '@angular/common/http';import { FormsModule } from '@angular/forms';
+import { AddOnComponent } from './admin/add-on/add-on.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddOnComponent
   ],
   imports: [
     BrowserModule,
