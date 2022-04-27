@@ -1,10 +1,10 @@
-package tech.getarrays.addonmanager;
+package com.examly.springapp.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tech.getarrays.addonmanager.model.Addon;
-import tech.getarrays.addonmanager.service.AddonService;
+import com.examly.springapp.model.Addon;
+import com.examly.springapp.service.AddonService;
 
 import java.util.List;
 

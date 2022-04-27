@@ -1,12 +1,14 @@
-package tech.getarrays.addonmanager.service;
+package com.examly.springapp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tech.getarrays.addonmanager.exception.UserNotFoundException;
-import tech.getarrays.addonmanager.model.Addon;
-import tech.getarrays.addonmanager.repo.AddonRepo;
 
 import javax.transaction.Transactional;
+
+import com.examly.springapp.exception.UserNotFoundException;
+import com.examly.springapp.model.Addon;
+import com.examly.springapp.repo.AddonRepo;
+
 import java.util.List;
 import java.util.UUID;
 

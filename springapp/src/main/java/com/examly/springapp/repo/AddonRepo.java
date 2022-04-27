@@ -1,9 +1,8 @@
-package tech.getarrays.addonmanager.repo;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import tech.getarrays.addonmanager.model.Addon;
+package com.examly.springapp.repo;
 
 import java.util.Optional;
+import com.examly.springapp.model.Addon;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AddonRepo extends JpaRepository<Addon, Long> {
     void deleteAddonById(Long id);

@@ -1,4 +1,5 @@
-package tech.getarrays.addonmanager.model;
+package com.examly.springapp.model;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
