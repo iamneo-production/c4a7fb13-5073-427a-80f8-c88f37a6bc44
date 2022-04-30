@@ -1,12 +1,11 @@
 package com.examly.springapp.models;
 
-import com.examly.springapp.enums.UserRoles;
-import org.hibernate.annotations.GenericGenerator;
-
+import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.examly.springapp.enums.UserRoles;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Auth {

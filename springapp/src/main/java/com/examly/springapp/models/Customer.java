@@ -6,9 +6,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+//import javax.persistence.uniqueConstraints;
+import javax.persistence.UniqueConstraint;
+import javax.persistence.Table ;
+
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table(uniqueConstraints={ @UniqueConstraint(columnNames = "auth_id") })
 public class Customer {
     
     @Id
@@ -70,6 +75,14 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    
+    public Auth getAuth() {
+        return auth;
+    }
+
+    public void setAuth(Auth auth) {
+        this.auth = auth;
     }
 
     @Override

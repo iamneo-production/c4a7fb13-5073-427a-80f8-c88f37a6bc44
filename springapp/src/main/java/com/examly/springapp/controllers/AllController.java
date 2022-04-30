@@ -21,15 +21,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.examly.springapp.enums.*;
+
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin
+@CrossOrigin("*")
 public class AllController {
     
     @Autowired
     private AuthService authService;
-
+    @Autowired
+    private AuthRepo authRepo;
     @Autowired
     private CustomerService customerService;
 
@@ -46,28 +49,66 @@ public class AllController {
         }
     }
 
-    @GetMapping("/customers")
+    /*@GetMapping("/customers")
     public ResponseEntity<List<Customer>> getAllCustomers(){
         return new ResponseEntity<>(customerService.getAllCustomers(),HttpStatus.OK);
-    }
+    }*/
 
-    @GetMapping("/admins")
+  /*  @GetMapping("/admins")
     public ResponseEntity<List<Admin>> getAllAdmins(){
         return new ResponseEntity<>(adminService.getAllAdmins(),HttpStatus.OK);
-    }
+    }*/
 
     @PostMapping("/addCustomer")
-    public ResponseEntity<Customer> addCustomer(@RequestBody RegisterModel registerModel){
-        Auth a = new Auth(registerModel.getEmail(),registerModel.getPassword(),UserRoles.CUSTOMER);
+    public ResponseEntity<String> addCustomer(@RequestBody RegisterModel registerModel){
+    Auth auth = authRepo.findByEmail(registerModel.getEmail());   
+      try{
+          if(auth!=null)
+          {
+            throw new Exception("User already exist");
+          }
+          else if(auth==null){
+        Auth a = new Auth(registerModel.getEmail(),registerModel.getPassword(),UserRoles.values()[Integer.parseInt(registerModel.getUserRole())].toString()
+        );
+
         Customer customer = new Customer(registerModel.getName(),registerModel.getPhoneNo(),registerModel.getAddress(),a);
-        return new ResponseEntity<>(customerService.addCustomer(customer),HttpStatus.OK);
+        return new ResponseEntity<String>(customerService.addCustomer(customer),HttpStatus.OK);
+          }
+          else{
+            throw new Exception("Something went wrong");
+          }
+      }
+      catch(Exception e){
+        System.out.println(e.getMessage());
+        return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+    }
     }
 
     @PostMapping("/addAdmin")
-    public ResponseEntity<Admin> addAdmin(@RequestBody RegisterModel registerModel){
-        Auth a = new Auth(registerModel.getEmail(),registerModel.getPassword(),UserRoles.ADMIN);
+    public ResponseEntity<String> addAdmin(@RequestBody RegisterModel registerModel){
+
+       //console.log(registerModel.getEmail()+" "+registerModel.getPassword()+" "+registerModel.getUserRole());
+      System.out.println(registerModel.getEmail()+" "+registerModel.getPassword()+" "+registerModel.getUserRole());
+      Auth auth = authRepo.findByEmail(registerModel.getEmail());
+      try{
+        if(auth!=null)
+        {
+          throw new Exception("User already exist");
+        }
+       else if(auth==null){
+        Auth a = new Auth(registerModel.getEmail(),registerModel.getPassword(),(UserRoles.values())[Integer.parseInt(registerModel.getUserRole())].toString());
         Admin admin = new Admin(registerModel.getName(),registerModel.getPhoneNo(),registerModel.getAddress(),a);
-        return new ResponseEntity<>(adminService.addAdmin(admin),HttpStatus.OK);
+        return new ResponseEntity<String>(adminService.addAdmin(admin),HttpStatus.OK);
+       }
+       else{
+        throw new Exception("Something went wrong");
+      }
+       }
+       catch(Exception e){
+        System.out.println(e.getMessage());
+        return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+    }
     }
 
 }
+
