@@ -1,4 +1,3 @@
-import { Byte } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { FoodItems } from 'src/app/models/FoodItems';
@@ -54,7 +53,7 @@ export class AddComponent implements OnInit {
       this._service.updateFoodItem(this.foodItem).subscribe(
         (data:any)=>{
           console.log(data);
-          // this._router.navigate(['/admin/menu']);
+          this._router.navigate(['/admin/menu']);
         },
         (error:any)=>{
           console.log(error);

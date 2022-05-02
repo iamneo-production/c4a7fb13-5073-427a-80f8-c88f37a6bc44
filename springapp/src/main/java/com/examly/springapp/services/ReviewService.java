@@ -1,12 +1,12 @@
-package com.examly.springapp.service;
+package com.examly.springapp.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.examly.springapp.model.Review;
-import com.examly.springapp.repo.ReviewRepo;
+import com.examly.springapp.models.Review;
+import com.examly.springapp.repos.ReviewRepo;
 
 @Service
 public class ReviewService {

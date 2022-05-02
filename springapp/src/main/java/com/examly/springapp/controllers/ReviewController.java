@@ -1,4 +1,4 @@
-package com.examly.springapp;
+package com.examly.springapp.controllers;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.examly.springapp.model.Review;
-import com.examly.springapp.service.ReviewService;
+import com.examly.springapp.models.Review;
+import com.examly.springapp.services.ReviewService;
 
 @RestController
 @RequestMapping("/user")

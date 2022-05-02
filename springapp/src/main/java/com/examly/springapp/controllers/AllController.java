@@ -8,6 +8,7 @@ import com.examly.springapp.models.Auth;
 import com.examly.springapp.models.Customer;
 import com.examly.springapp.models.LoginModel;
 import com.examly.springapp.models.RegisterModel;
+import com.examly.springapp.repos.AuthRepo;
 import com.examly.springapp.services.AdminService;
 import com.examly.springapp.services.AuthService;
 import com.examly.springapp.services.CustomerService;
@@ -61,53 +62,46 @@ public class AllController {
 
     @PostMapping("/addCustomer")
     public ResponseEntity<String> addCustomer(@RequestBody RegisterModel registerModel){
-    Auth auth = authRepo.findByEmail(registerModel.getEmail());   
-      try{
-          if(auth!=null)
-          {
-            throw new Exception("User already exist");
-          }
-          else if(auth==null){
-        Auth a = new Auth(registerModel.getEmail(),registerModel.getPassword(),UserRoles.values()[Integer.parseInt(registerModel.getUserRole())].toString()
-        );
-
-        Customer customer = new Customer(registerModel.getName(),registerModel.getPhoneNo(),registerModel.getAddress(),a);
-        return new ResponseEntity<String>(customerService.addCustomer(customer),HttpStatus.OK);
-          }
-          else{
-            throw new Exception("Something went wrong");
-          }
-      }
-      catch(Exception e){
-        System.out.println(e.getMessage());
-        return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-    }
+        Auth auth = authRepo.findByEmail(registerModel.getEmail());
+        try{
+            if(auth!=null) {
+                throw new Exception("User already exist");
+            }
+            else if(auth==null){
+                Auth a = new Auth(registerModel.getEmail(),registerModel.getPassword(),UserRoles.CUSTOMER);
+                Customer customer = new Customer(registerModel.getName(),registerModel.getPhoneNo(),registerModel.getAddress(),a);
+                return new ResponseEntity<String>(customerService.addCustomer(customer).toString(),HttpStatus.OK);
+            }
+            else{
+                throw new Exception("Something went wrong");
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PostMapping("/addAdmin")
     public ResponseEntity<String> addAdmin(@RequestBody RegisterModel registerModel){
-
-       //console.log(registerModel.getEmail()+" "+registerModel.getPassword()+" "+registerModel.getUserRole());
-      System.out.println(registerModel.getEmail()+" "+registerModel.getPassword()+" "+registerModel.getUserRole());
-      Auth auth = authRepo.findByEmail(registerModel.getEmail());
-      try{
-        if(auth!=null)
-        {
-          throw new Exception("User already exist");
+        Auth auth = authRepo.findByEmail(registerModel.getEmail());
+        try{
+            if(auth!=null) {
+                throw new Exception("User already exist");
+            }
+            else if(auth==null){
+                Auth a = new Auth(registerModel.getEmail(),registerModel.getPassword(),UserRoles.ADMIN);
+                Admin admin = new Admin(registerModel.getName(),registerModel.getPhoneNo(),registerModel.getAddress(),a);
+                return new ResponseEntity<String>(adminService.addAdmin(admin).toString(),HttpStatus.OK);
+            }
+            else{
+                throw new Exception("Something went wrong");
+            }
         }
-       else if(auth==null){
-        Auth a = new Auth(registerModel.getEmail(),registerModel.getPassword(),(UserRoles.values())[Integer.parseInt(registerModel.getUserRole())].toString());
-        Admin admin = new Admin(registerModel.getName(),registerModel.getPhoneNo(),registerModel.getAddress(),a);
-        return new ResponseEntity<String>(adminService.addAdmin(admin),HttpStatus.OK);
-       }
-       else{
-        throw new Exception("Something went wrong");
-      }
-       }
-       catch(Exception e){
-        System.out.println(e.getMessage());
-        return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
-    }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
     }
 
 }

@@ -13,7 +13,7 @@ export class AllServiceService {
   constructor(private _httpClient:HttpClient) { }
 
   doLogin(loginModel:LoginModel): Observable<any> {
-    console.log(`Model: ${loginModel.email} ${loginModel.password}`);
+    // console.log(`Model: ${loginModel.email} ${loginModel.password}`);
     return this._httpClient.post(this._url+'login',loginModel);
   }
 

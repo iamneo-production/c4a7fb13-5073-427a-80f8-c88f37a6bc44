@@ -5,7 +5,7 @@ import java.util.List;
 import com.examly.springapp.models.*;
 import com.examly.springapp.repos.AdminRepo;
 import com.examly.springapp.repos.AuthRepo;
-
+import com.examly.springapp.repos.ThemeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
