@@ -20,6 +20,8 @@ import { MainComponent } from './admin/menu/main/main.component';
 import { AllServiceService } from './services/all-service.service';
 import {AdminServiceService} from './services/admin/admin-service.service';
 import { AddComponent } from './admin/menu/add/add.component';
+import { CustomerNavbarComponent } from './customer/customer-navbar/customer-navbar.component';
+import { CustomerMenuComponent } from './customer/customer-menu/customer-menu.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { AddComponent } from './admin/menu/add/add.component';
     NavbarComponent,
     MainComponent,
     AddComponent,
+    CustomerNavbarComponent,
+    CustomerMenuComponent,
   ],
   imports: [
     BrowserModule,
