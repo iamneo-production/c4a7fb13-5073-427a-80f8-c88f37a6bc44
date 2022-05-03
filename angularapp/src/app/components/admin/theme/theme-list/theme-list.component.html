@@ -1,0 +1,57 @@
+<app-admin-nav></app-admin-nav>
+<div style="height:100%;background-color:rgb(186, 186, 233)">
+<br/>
+
+
+
+
+<img class="img" (click)= "AddTheme()" src="https://cdn-icons-png.flaticon.com/128/1828/1828817.png" style="margin-left: 90px;" >
+    <!-- Code for Users list -->
+    <br/>
+   
+    <table
+      class="usertable"
+      style="margin-top: 10px; margin-left:90px;width:1200px;"
+    >
+   
+      <!-- Table for headings -->
+      <tr
+      
+        style="
+          background-color: rgb(105, 46, 4);
+          max-width:max-content ;
+          height: 50px;
+         
+        "
+      >
+        <th ><h3 style="text-align: left;margin-left: 50px;color: aliceblue;">Image</h3></th>
+        <th><h3 style="text-align:center;color: aliceblue;">Themename</h3></th>
+        <th ><h3 style="text-align: right;margin-right: 200px;color: aliceblue;">Actions</h3></th>
+      </tr>
+  
+      <br />
+  
+     
+  
+      <tr *ngFor = "let theme of themes"  style="background-color:rgb(248, 250, 249);">
+        <td >
+          <img
+         
+            src={{theme.imageUrl}}
+            style="width: 90px; height: 90px; margin-top: 9px; margin-bottom: 9px;margin-left: 50px;"
+          />
+        </td>
+        <td style="font-size: 30px;text-align:center ;">{{theme.themeName}}</td>
+    
+        <td style="text-align:end;margin-right:20px;">
+          
+           <img  (click) = "EditTheme(theme.id)" src="https://img.icons8.com/cotton/2x/edit.png"  style="width: 80px;height: 40px;margin-right: 100px;">
+        
+            <img (click) = "DeleteTheme(theme.id)"   src="https://img.icons8.com/stickers/2x/filled-trash.png" style="width: 80px;height: 40px;margin-right: 80px;">
+            <img (click) = "ViewTheme(theme.id)"  src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-view-cyber-security-kiranshastry-lineal-color-kiranshastry-3.png" style="width: 80px;height: 50px;margin-right: 60px;">
+          </td>
+      </tr>
+
+    </table>
+  </div>
+   

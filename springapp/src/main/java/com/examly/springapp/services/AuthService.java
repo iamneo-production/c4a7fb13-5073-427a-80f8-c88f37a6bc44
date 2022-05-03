@@ -8,11 +8,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
-    
+    String emailid=null;
     @Autowired
     private AuthRepo authRepo;
     
     public String doLogin(String email,String password) throws Exception{
+        this.emailid=email;
         Auth auth = authRepo.findByEmail(email);
         if(auth == null){
             System.out.println(email);
@@ -27,5 +28,18 @@ public class AuthService {
 
         return  auth.getRoles() ;
         }
+
     }
+    public String gettoken()
+    {
+        System.out.println(this.emailid);
+        return emailid;
+    }
+    public String signout()
+    {
+        this.emailid=null;
+        System.out.println(this.emailid);
+        return emailid;
+    }
+
 }

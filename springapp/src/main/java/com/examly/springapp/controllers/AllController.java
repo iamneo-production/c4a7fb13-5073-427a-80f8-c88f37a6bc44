@@ -32,7 +32,7 @@ import com.examly.springapp.enums.*;
 @RequestMapping
 @CrossOrigin("*")
 public class AllController {
-    
+   
     @Autowired
     private AuthService authService;
     @Autowired
@@ -45,7 +45,7 @@ public class AllController {
 
     @PostMapping("/login")
     public ResponseEntity<String> doLogin(@RequestBody LoginModel loginModel){
-        
+      
         try{
             System.out.println("Successfull");
             return new ResponseEntity<>(authService.doLogin(loginModel.getEmail(),loginModel.getPassword()),HttpStatus.OK);
@@ -116,6 +116,16 @@ public class AllController {
         return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
     }
     }
+    @GetMapping("/gettoken")
+    public ResponseEntity<String> gettoken(){
+        return new ResponseEntity<>(authService.gettoken(),HttpStatus.OK);
+    }
+
+    @GetMapping("/signout")
+    public ResponseEntity<String> signout(){
+        return new ResponseEntity<>(authService.signout(),HttpStatus.OK);
+    }
+
 
 }
 

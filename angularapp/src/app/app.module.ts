@@ -25,6 +25,8 @@ import { AdminUpdateComponent } from './components/admin/admin-update/admin-upda
 import { AddThemeComponent } from './components/admin/theme/add-theme/add-theme.component';
 import { DeleteThemeComponent } from './components/admin/theme/delete-theme/delete-theme.component';
 import { UpdateThemeComponent } from './components/admin/theme/update-theme/update-theme.component';
+import { ThemeListComponent } from './components/admin/theme/theme-list/theme-list.component';
+import { ViewThemeComponent } from './components/admin/theme/view-theme/view-theme.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,10 @@ import { UpdateThemeComponent } from './components/admin/theme/update-theme/upda
     AdminUpdateComponent,
     AddThemeComponent,
     DeleteThemeComponent,
-    UpdateThemeComponent
+    UpdateThemeComponent,
+    ThemeListComponent,
+    
+    ViewThemeComponent
   ],
   imports: [
     BrowserModule,
