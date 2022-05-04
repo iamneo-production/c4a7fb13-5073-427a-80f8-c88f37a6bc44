@@ -13,7 +13,7 @@ export class AddComponent implements OnInit {
   foodItem:FoodItems = {
     id:"",
     name:"",
-    category:"",
+    category:"VEG",
     cost:0,
     image:null
   }
