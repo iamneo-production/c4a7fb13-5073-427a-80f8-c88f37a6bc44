@@ -9,6 +9,7 @@ import com.examly.springapp.service.AddonService;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/addon")
 public class AddonResource {
     private final AddonService addonService;
