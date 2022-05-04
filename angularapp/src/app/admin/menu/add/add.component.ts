@@ -52,8 +52,8 @@ export class AddComponent implements OnInit {
     else{
       this._service.updateFoodItem(this.foodItem).subscribe(
         (data:any)=>{
-          console.log(data);
-          // this._router.navigate(['/admin/menu']);
+          // console.log(data);
+          this._router.navigate(['/admin/menu']);
         },
         (error:any)=>{
           console.log(error);
