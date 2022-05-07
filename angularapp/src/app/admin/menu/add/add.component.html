@@ -1,10 +1,15 @@
-<div>
+<div class="h-100 w-100">
     <app-navbar></app-navbar>
     <div class="d-flex justify-content-center align-items-center h-80">
-        <form class="w-50">
+        <form class="w-25 add-form">
+            <div class="form-group">
+                <div class="alert alert-danger" *ngIf="errors.show">
+                    {{errors.message}}
+                </div>
+            </div>
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="foodItem.name" required>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="foodItem.name">
             </div>
             <div class="form-group">
                 <label for="category">Category</label>
@@ -14,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
-                <input type="number" class="form-control" id="price" name="price" [(ngModel)]="foodItem.cost" required>
+                <input type="number" class="form-control" id="price" name="price" [(ngModel)]="foodItem.cost">
             </div>
             <div class="form-group">
                 <label for="image">Image</label>

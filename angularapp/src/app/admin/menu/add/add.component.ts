@@ -19,6 +19,10 @@ export class AddComponent implements OnInit {
   }
   id:String | null = ""
   categories:String[] = ["VEG","NONVEG","BEVERAGE"] 
+  errors = {
+    show:false,
+    message:""
+  }
 
   constructor(private _route:ActivatedRoute,private _service:AdminServiceService,
     private _router:Router) { }
@@ -38,10 +42,28 @@ export class AddComponent implements OnInit {
   }
 
   onSubmit(e:any){
+      if(this.foodItem.name === "") {
+        this.errors.show = true;
+        this.errors.message = "Food Item Name is required";
+      }      
+      else if(this.foodItem.cost <= 0) {
+        this.errors.show = true;
+        this.errors.message = "Food Item Cost is invalid";
+      }
+      else if(this.foodItem.image === null) {
+        this.errors.show = true;
+        this.errors.message = "Food Item Image is required";
+      }
+      else{
+        this.submitFoodItem();
+      }
+  }
+
+  submitFoodItem(){
     if(this.id === "add"){
       this._service.addFoodItem(this.foodItem).subscribe(
         (data:any)=>{
-          console.log(data);
+          // console.log(data);
           this._router.navigate(['/admin/menu']);
         },
         (error:any)=>{
@@ -59,7 +81,7 @@ export class AddComponent implements OnInit {
           console.log(error);
         }
       )
-    }        
+    }
   }
 
   onChangeFile(e:any){

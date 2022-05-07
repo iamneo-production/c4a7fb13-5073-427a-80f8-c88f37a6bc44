@@ -20,6 +20,7 @@ export class MainComponent implements OnInit {
 	}
 
 	getAllFoodItems(){
+		this.foodItems = [];
 		this._service.getAllFoodItems().subscribe(
 			(data:FoodItems[])=>{
 				for(let i=0;i<data.length;i++){
@@ -30,7 +31,7 @@ export class MainComponent implements OnInit {
 			},
 			(error:any)=>{
 			console.log(error);
-			})
+		})
 	}
 
 	searchItem(e:any){
