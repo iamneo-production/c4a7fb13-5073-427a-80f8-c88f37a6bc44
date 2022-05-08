@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,6 +22,9 @@ import { AddComponent } from './admin/menu/add/add.component';
 import { CustomerNavbarComponent } from './customer/customer-navbar/customer-navbar.component';
 import { CustomerMenuComponent } from './customer/customer-menu/customer-menu.component';
 
+import { AddonService } from './addon.service';
+import { AddOnComponent } from './admin/add-on/add-on.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { CustomerMenuComponent } from './customer/customer-menu/customer-menu.co
     AddComponent,
     CustomerNavbarComponent,
     CustomerMenuComponent,
+    AddOnComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import { CustomerMenuComponent } from './customer/customer-menu/customer-menu.co
     FormsModule,
     HttpClientModule
   ],
-  providers: [AllServiceService,AdminServiceService],
+  providers: [AllServiceService,AdminServiceService,AddonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
