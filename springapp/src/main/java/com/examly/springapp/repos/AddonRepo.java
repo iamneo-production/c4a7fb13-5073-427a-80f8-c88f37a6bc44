@@ -1,7 +1,7 @@
-package com.examly.springapp.repo;
+package com.examly.springapp.repos;
 
 import java.util.Optional;
-import com.examly.springapp.model.Addon;
+import com.examly.springapp.models.Addon;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AddonRepo extends JpaRepository<Addon, Long> {

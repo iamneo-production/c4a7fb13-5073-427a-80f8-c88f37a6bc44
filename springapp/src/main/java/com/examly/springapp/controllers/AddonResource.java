@@ -1,10 +1,10 @@
-package com.examly.springapp.controller;
+package com.examly.springapp.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.examly.springapp.model.Addon;
-import com.examly.springapp.service.AddonService;
+import com.examly.springapp.models.Addon;
+import com.examly.springapp.services.AddonService;
 
 import java.util.List;
 

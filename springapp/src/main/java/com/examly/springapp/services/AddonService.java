@@ -1,4 +1,4 @@
-package com.examly.springapp.service;
+package com.examly.springapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
 import com.examly.springapp.exception.UserNotFoundException;
-import com.examly.springapp.model.Addon;
-import com.examly.springapp.repo.AddonRepo;
+import com.examly.springapp.models.Addon;
+import com.examly.springapp.repos.AddonRepo;
 
 import java.util.List;
 import java.util.UUID;

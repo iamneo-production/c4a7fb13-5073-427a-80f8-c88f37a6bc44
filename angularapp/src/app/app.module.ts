@@ -25,6 +25,7 @@ import { CustomerMenuComponent } from './customer/customer-menu/customer-menu.co
 import { AddonService } from './addon.service';
 import { AddOnComponent } from './admin/add-on/add-on.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CustomerAddOnComponent } from './customer/customer-add-on/customer-add-on.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AppRoutingModule } from './app-routing.module';
     AddComponent,
     CustomerNavbarComponent,
     CustomerMenuComponent,
-    AddOnComponent
+    AddOnComponent,
+    CustomerAddOnComponent
   ],
   imports: [
     BrowserModule,

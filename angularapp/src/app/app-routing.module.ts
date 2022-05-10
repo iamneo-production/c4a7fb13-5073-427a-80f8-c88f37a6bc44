@@ -9,6 +9,7 @@ import { MainComponent } from './admin/menu/main/main.component';
 import { AddComponent } from './admin/menu/add/add.component';
 import { CustomerMenuComponent } from './customer/customer-menu/customer-menu.component';
 import { AddOnComponent } from './admin/add-on/add-on.component';
+import { CustomerAddOnComponent } from './customer/customer-add-on/customer-add-on.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: "admin/addOn", component: AddOnComponent },
   
   { path: "customer/menu", component: CustomerMenuComponent },
+  { path: "customer/addOn", component: CustomerAddOnComponent},
   
   { path: "", component: HomePageComponent },
 ];
