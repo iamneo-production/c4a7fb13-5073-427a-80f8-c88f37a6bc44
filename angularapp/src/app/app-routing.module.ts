@@ -8,15 +8,17 @@ import { RegisterComponent } from './components/login-Register/register/register
 import { MainComponent } from './admin/menu/main/main.component';
 import { AddComponent } from './admin/menu/add/add.component';
 import { CustomerMenuComponent } from './customer/customer-menu/customer-menu.component';
+import { AddOnComponent } from './admin/add-on/add-on.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
-  { path: "register", component: RegisterComponent},
+  { path: "register", component: RegisterComponent },
 
-  { path: "admin/menu", component: MainComponent},
-  { path: "admin/menu/:id", component: AddComponent},
+  { path: "admin/menu", component: MainComponent },
+  { path: "admin/menu/:id", component: AddComponent },
+  { path: "admin/addOn", component: AddOnComponent },
   
-  { path: "customer/menu", component: CustomerMenuComponent},
+  { path: "customer/menu", component: CustomerMenuComponent },
   
   { path: "", component: HomePageComponent },
 ];

@@ -36,7 +36,7 @@ public class SpringappApplication {
 			com.examly.springapp.models.FoodItems food1 = new com.examly.springapp.models.FoodItems("Dal", FoodType.VEG,200,null);
 			com.examly.springapp.models.FoodItems food2 = new com.examly.springapp.models.FoodItems("Chicken Curry", FoodType.NONVEG,250,null);
 			com.examly.springapp.models.FoodItems food3 = new com.examly.springapp.models.FoodItems("Blue Lagoon", FoodType.BEVERAGE,130,null);
-			itemsRepo.saveAll(List.of(food1,food2,food3));
+			itemsRepo.save(food1);itemsRepo.save(food2);itemsRepo.save(food3);
 
 		};
 	}

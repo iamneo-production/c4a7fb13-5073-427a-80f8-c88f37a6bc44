@@ -24,8 +24,7 @@ public class FoodItemsService {
 
     public FoodItems getFoodItemById(String id){
         Optional<FoodItems> optionalFoodItems = foodItemsRepo.findById(id);
-        if(optionalFoodItems.isEmpty()) return null;
-        return optionalFoodItems.get();
+        return optionalFoodItems.orElse(null);
     }
 
     public FoodItems updateFoodItem(FoodItems foodItems){

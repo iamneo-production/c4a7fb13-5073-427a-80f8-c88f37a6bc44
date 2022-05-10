@@ -1,21 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" style="color:white;">Add-on</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarColor02">
-     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-           <a class="nav-link" (click)="onOpenModal(null, 'add')">+ Add-ons <span class="sr-only">(current)</span></a>
-        </li>
-     </ul>
-     <form class="form-inline my-2 my-lg-0">
-        <input type="search" (ngModelChange)="searchAddons(key.value)" #key="ngModel" ngModel
-         name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Addons..." required>
-     </form>
-  </div>
-</nav>
-<div class="container" id="main-container">
+<app-navbar></app-navbar>
+<div class="d-flex flex-row-reverse justify-content-center align-items-center py-2">
+   <button class="btn btn-danger" (click)="onOpenModal(null, 'add')">+ Add-ons</button>   
+   <form class="form-inline w-75">
+      <input type="search" (ngModelChange)="searchAddons(key.value)" #key="ngModel" ngModel
+      name="key" id="searchName" class="form-control w-75" placeholder="Search Addons..." required>
+   </form>
+</div>
+<div class="container my-2" id="main-container">
 <div class="row">
   <div *ngFor="let addon of addons" class="col-md-6 col-xl-3">
      <div class="card m-b-30">
