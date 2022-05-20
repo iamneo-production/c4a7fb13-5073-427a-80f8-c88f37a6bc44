@@ -10,7 +10,7 @@ import { Theme } from './../models/Theme';
 })
 export class ThemeServiceService {
 
-  private _url:string = 'https://8080-cebfaaeddedefffffdbecbfeeecafdedbbbfbfdceaf.examlyiopb.examly.io/admin/';
+  private _url: string = 'http://localhost:8080/admin/';
   constructor(private _httpClient:HttpClient) { }
   getThemeList(): Observable<ThemeModel[]>   {
     

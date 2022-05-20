@@ -1,0 +1,29 @@
+.design1 {
+  color: black;
+}
+
+.design {
+  border-radius: 34px;
+  background-color: rgb(11, 11, 119);
+  height: 50px;
+  margin-left: 220px;
+}
+
+.designd {
+  border-radius: 34px;
+  background-color: rgb(11, 11, 119);
+  height: 50px;
+  margin-left: 200px;
+}
+
+.designe {
+  border-radius: 34px;
+  background-color: rgb(11, 11, 119);
+  height: 50px;
+  margin-left: 200px;
+}
+
+
+.text-left {
+  text-align: right;
+}

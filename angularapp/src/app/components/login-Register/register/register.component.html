@@ -1,60 +1,62 @@
 <app-header></app-header>
-<br/><br/><br/><br/>
+
 <div class="container">
-    <div class="row">
-      <div class="card">
-        <div class="text-center">
-          <h1>Signup</h1>
-          <br/>
-          <h6>Register yourself!!</h6>
-          <br/>
-        </div>
-        <form>
-          
-            <div class="form-group">
-            <label for="userRole">Role *</label>
-      <select name="userRole" [(ngModel)] = "regModel.userRole" class="form-control" id="userRole" >
-        <option [value]="2" class="text-gray-700 no-underline block px-4 py-2 text-sm hover:bg-cyan-200 ease-in">Select Role Type</option>
-        <option [value]="1" class="text-gray-700 no-underline block px-4 py-2 text-sm hover:bg-cyan-200 ease-in">Admin</option>
-        <option [value]="0" class="text-gray-700 no-underline block px-4 py-2 text-sm hover:bg-cyan-200 ease-in">Customer</option>
-      </select>
-    </div>
-    <br/>
-            <div class="form-group">
-              <label for="name">Name *</label>
-              <input [(ngModel)]="regModel.name" name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Full Name" required>
-              
-            </div>
-            <br/>
-            <div class="form-group">
-              <label for="phoneNo">Mobile Number *</label>
-              <input [(ngModel)]="regModel.phoneNo" name="phoneNo" type="number" class="form-control" id="phoneNo" aria-describedby="emailHelp" placeholder="Enter Phone Number" required>
-            </div>
-            <br/>
-            <div class="form-group">
-              <label for="address">Address</label>
-              <input [(ngModel)]="regModel.address" name="address" type="text" class="form-control" id="address" aria-describedby="emailHelp" placeholder="Enter address" required>
-            </div>
-            <br/>
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input [(ngModel)]="regModel.email" name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
-            </div>
-            <br/>
-            <div class="form-group">
-              <label for="password">Password *</label>
-              <input [(ngModel)]="regModel.password" name ="password" type="password" class="form-control" id="password" placeholder=" Enter Password" required>
-            </div>
-            <br/>
-            <div class="form-group">
-              <label for="password1">Confirm Password *</label>
-              <input [(ngModel)]="ConfirmPassword" name="ConfirmPassword" type="password" class="form-control" id="password1" placeholder="Confirm  Password" required>
-            </div>
-            <br/>
-            <button  (click)="btnClick($event)"style="margin-left:175px;" type="submit" class="btn btn-primary mb-2">Signup</button>
-          </form>
-       
-        <a style="color: #fff;text-align: center;" routerLink="/login">Already registered? Click to signin</a>
+  <div class="row">
+
+    <br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="card">
+      <div class="text-center">
+        <h1>Signup</h1>
+        <br />
+        <h6>Register yourself!!</h6>
+        <br />
       </div>
+      <form>
+
+        <div class="form-group">
+          <label for="userRole">Role *</label>
+          <select name="userRole" [(ngModel)]="regModel.userRole" class="form-control" id="userRole">
+            <option [value]="2" class="text-gray-700 no-underline block px-4 py-2 text-sm hover:bg-cyan-200 ease-in">Select Role Type</option>
+            <option [value]="1" class="text-gray-700 no-underline block px-4 py-2 text-sm hover:bg-cyan-200 ease-in">Admin</option>
+            <option [value]="0" class="text-gray-700 no-underline block px-4 py-2 text-sm hover:bg-cyan-200 ease-in">Customer</option>
+          </select>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input [(ngModel)]="regModel.name" name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Full Name" required>
+
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="phoneNo">Mobile Number *</label>
+          <input [(ngModel)]="regModel.phoneNo" name="phoneNo" type="number" class="form-control" id="phoneNo" aria-describedby="emailHelp" placeholder="Enter Phone Number" required>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input [(ngModel)]="regModel.address" name="address" type="text" class="form-control" id="address" aria-describedby="emailHelp" placeholder="Enter address" required>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input [(ngModel)]="regModel.email" name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="password">Password *</label>
+          <input [(ngModel)]="regModel.password" name="password" type="password" class="form-control" id="password" placeholder=" Enter Password" required>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="password1">Confirm Password *</label>
+          <input [(ngModel)]="ConfirmPassword" name="ConfirmPassword" type="password" class="form-control" id="password1" placeholder="Confirm  Password" required>
+        </div>
+        <br />
+        <button (click)="btnClick($event)" style="margin-left:175px;" type="submit" class="btn btn-primary mb-2">Signup</button>
+      </form>
+
+      <a style="color: #fff;text-align: center;" routerLink="/login">Already registered? Click to signin</a>
     </div>
   </div>
+</div>

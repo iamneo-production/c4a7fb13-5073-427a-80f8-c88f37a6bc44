@@ -1,4 +1,4 @@
-.btn1
+/*.btn1
 {
     border-radius: 1.5rem;
     height:40px;
@@ -8,4 +8,15 @@
     height:60px;
     
     
+}*/
+.pd {
+  padding: 1vh 1vw 0;
+}
+
+.btn-set {
+  height: 5.4vh;
+}
+
+.img-height {
+  height: 40vh;
 }

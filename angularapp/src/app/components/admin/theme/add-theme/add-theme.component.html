@@ -1,72 +1,77 @@
 <app-admin-nav></app-admin-nav>
-<br/>
+<br />
 
-  <div class="row">
-    <div class="card col-md-6 offset-md-3 offset-md-3" style="background-color: rgb(190, 238, 238);">
-        <div class="row">
-            <h1 class="text-center" style="background-color: rgb(7, 4, 49);color: bisque;"> Add Theme </h1>
-            <br/>
-            <div class="card-body" >
-          
-              <form (ngSubmit)="sendRequest()" style="background-color:rgb(184, 230, 230);">
-                <div class="form-group">
-                  <label > Theme Name</label>
-                  <input type="text" class="form-control" id="themename"  
-                  placeholder="Enter Theme Name" [(ngModel)]="themeModel.themeName" name="themeName">
-                  
-                </div>
-                <div class="form-group">
-                  <label > Image URL</label>
-                  <input type="text" class="form-control" id="imageUrl"  
-                  placeholder="Enter Theme URL" [(ngModel)]="themeModel.imageUrl" name="imageUrl">
-                </div>
+<div class="row">
+  <div class="card col-md-6 offset-md-3 offset-md-3" style="background-color: rgb(190, 238, 238);">
+    <div class="row">
+      <h1 class="text-center" style="background-color: rgb(7, 4, 49);color: bisque;"> Add Theme </h1>
+      <br />
+      <div class="card-body">
 
-                <div class="form-group">
-                  <label >Photographer's Details</label>
-                  <input type="text" class="form-control" id="photographerDetails"  
-                  placeholder="Enter Photographer's Details"
+        <form (ngSubmit)="sendRequest()" style="background-color:rgb(184, 230, 230);" #addtheme="ngForm">
+          <div class="form-group">
+            <label> Theme Name</label>
+            <input type="text" class="form-control" id="themeName"
+                   placeholder="Enter Theme Name" [(ngModel)]="themeModel.themeName" name="themeName" required>
+
+
+
+          </div>
+          <div class="form-group">
+            <label> Image URL</label>
+            <input type="text" class="form-control" id="imageUrl" required
+                   placeholder="Enter Theme URL" [(ngModel)]="themeModel.imageUrl" name="imageUrl">
+          </div>
+
+          <div class="form-group">
+            <label>Photographer's Details</label>
+            <input type="text" class="form-control" id="photographerDetails" required
+                   placeholder="Enter Photographer's Details"
                    [(ngModel)]="themeModel.photographerDetails" name="photographerDetails">
 
-                </div>
-
-
-                <div class="form-group">
-                  <label >Videographer's Details</label>
-                  <input type="text" class="form-control" id="videographerDetails"  
-                  placeholder="Enter videographer's Details" [(ngModel)]="themeModel.videographerDetails" 
-                  name="videographerDetails">
-                </div>
-
-                <div class="form-group">
-                  <label >Theme Return Gift</label>
-                  <input type="text" class="form-control" id="returnGift" 
-                  placeholder="Enter Theme's return gift" [(ngModel)]="themeModel.returnGift"
-                   name="returnGift">
-                </div>
-
-                <div class="form-group">
-                    <label >Theme Cost</label>
-                    <input type="number" class="form-control" id="themeCost" placeholder="Enter Theme Cost" 
-                    [(ngModel)]="themeModel.themeCost" name="themeCost">
-                  </div>
-
-                  <div class="form-group">
-                    <label >Theme Description</label>
-                    <input type="text" class="form-control" id="themeDescription" 
-                    placeholder="Enter Theme Description" [(ngModel)]="themeModel.themeDescription" 
-                    name="themeDescription">
-                  </div>
-
-                  <br/>
-                  <button class="btn btn-success" 
-                  type="submit" style="margin-left: 290px;background-color: rgb(3, 3, 68);">Submit</button>
-              </form>
-         
-            
           </div>
-        </div>
+
+
+          <div class="form-group">
+            <label>Videographer's Details</label>
+            <input type="text" class="form-control" id="videographerDetails" required
+                   placeholder="Enter videographer's Details" [(ngModel)]="themeModel.videographerDetails"
+                   name="videographerDetails">
+          </div>
+
+          <div class="form-group">
+            <label>Theme Return Gift</label>
+            <input type="text" class="form-control" id="returnGift" required
+                   placeholder="Enter Theme's return gift" [(ngModel)]="themeModel.returnGift"
+                   name="returnGift">
+          </div>
+
+          <div class="form-group">
+            <label>Theme Cost</label>
+            <input type="number" min=0 class="form-control" id="themeCost" placeholder="Enter Theme Cost"
+                   [(ngModel)]="themeModel.themeCost" name="themeCost" required oninput="validity.valid||(value='');">
+          </div>
+
+
+          <div class="form-group">
+            <label>Theme Description</label>
+            <input type="text" class="form-control" id="themeDescription" required
+                   placeholder="Enter Theme Description" [(ngModel)]="themeModel.themeDescription"
+                   name="themeDescription">
+          </div>
+
+          <br />
+          <button class="btn btn-success" [disabled]="addtheme.form.invalid"
+                  type="submit" style="margin-left: 290px;background-color: rgb(3, 3, 68);">
+            Submit
+          </button>
+        </form>
+
+
       </div>
     </div>
+  </div>
+</div>
 
-  
- 
+
+

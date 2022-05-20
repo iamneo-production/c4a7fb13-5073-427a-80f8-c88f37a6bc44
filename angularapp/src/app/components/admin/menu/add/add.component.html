@@ -1,0 +1,28 @@
+<div>
+  <app-admin-nav></app-admin-nav>
+  <div class="d-flex justify-content-center align-items-center h-80">
+    <form class="w-50" (ngSubmit)="onSubmit()" #addmenu="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input  type="text" class="form-control" id="name" name="name" [(ngModel)]="foodItem.name" required>
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select class="form-control" [(ngModel)]="foodItem.category" name="category" required>
+          <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input  type="number" min="0" class="form-control" id="price" name="price" [(ngModel)]="foodItem.cost" required oninput="validity.valid||(value='');">
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input  type="file" class="form-control" id="image" name="image" accept="image/*" (change)="onChangeFile($event)" required>
+      </div>
+      <div class="form-group d-flex justify-content-center">
+        <button [disabled]="addmenu.form.invalid" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -27,6 +27,14 @@ import { DeleteThemeComponent } from './components/admin/theme/delete-theme/dele
 import { UpdateThemeComponent } from './components/admin/theme/update-theme/update-theme.component';
 import { ThemeListComponent } from './components/admin/theme/theme-list/theme-list.component';
 import { ViewThemeComponent } from './components/admin/theme/view-theme/view-theme.component';
+import { ReviewAddComponent } from './components/Review/review-add/review-add.component';
+import { ReviewDeleteComponent } from './components/Review/review-delete/review-delete.component';
+import { ReviewUpdateComponent } from './components/Review/review-update/review-update.component';
+import { ReviewListComponent } from './components/Review//review-list/review-list.component';
+import { AddOnComponent } from './components/admin/add-on/add-on.component';
+import { AddComponent } from './components/admin/menu/add/add.component';
+import { MainComponent } from './components/admin/menu/main/main.component';
+import { ReviewShowComponent } from './components/admin/review-show/review-show.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +61,23 @@ import { ViewThemeComponent } from './components/admin/theme/view-theme/view-the
     UpdateThemeComponent,
     ThemeListComponent,
     
-    ViewThemeComponent
+    ViewThemeComponent,
+    
+    ReviewAddComponent,
+    
+    ReviewDeleteComponent,
+    
+    ReviewUpdateComponent,
+    
+    ReviewListComponent,
+    
+    AddOnComponent,
+    
+    AddComponent,
+    
+    MainComponent,
+    
+    ReviewShowComponent
   ],
   imports: [
     BrowserModule,

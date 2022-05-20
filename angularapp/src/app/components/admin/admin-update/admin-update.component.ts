@@ -23,7 +23,6 @@ export class AdminUpdateComponent implements OnInit {
     this._allservice.getAdminByEmail(this.id).subscribe((data : any ) => {
       console.log("get get");
       this.admin = data;
-     // console.log(this.admin);
      
     }, (error : any ) => console.log(error));
   }
@@ -33,7 +32,7 @@ export class AdminUpdateComponent implements OnInit {
     this._allservice.updateAdmin(this.id, this.admin).subscribe( (data : any ) =>{
       console.log("edit edit");
       this.admin=data;
-      //console.log(data);
+     
     
       this.goToAdminDashboard();
       

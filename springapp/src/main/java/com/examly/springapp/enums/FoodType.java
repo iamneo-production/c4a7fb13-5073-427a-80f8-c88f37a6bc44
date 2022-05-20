@@ -1,6 +1,7 @@
 package com.examly.springapp.enums;
 
-public enum Menutype {
+public enum FoodType {
     VEG ,
-    NonVEG
+    NONVEG ,
+    BEVERAGE
 }

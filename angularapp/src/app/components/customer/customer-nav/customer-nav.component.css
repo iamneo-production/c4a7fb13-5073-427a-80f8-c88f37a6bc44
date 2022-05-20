@@ -1,21 +1,18 @@
-.button-edit
-{
-    margin-left: 350px;
-    border-radius: 0.75rem;
-}
-.link-edit
-{
-    margin-left:400px;
+.button-edit {
+  margin-left: 350px;
+  border-radius: 0.75rem;
 }
 
-.img{
-    width:60px;
-    height:50px;
-    border-radius: 1.25rem;
-
+.link-edit {
+  margin-left: 400px;
 }
 
- .colour
- {
-     color:antiquewhite;
- }   
+.img {
+  width: 60px;
+  height: 50px;
+  border-radius: 1.25rem;
+}
+
+.colour {
+  color: antiquewhite;
+}

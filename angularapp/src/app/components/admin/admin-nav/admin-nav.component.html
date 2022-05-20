@@ -1,25 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark  ">
-    <!--<a class="navbar-brand" href="#">Navbar</a>-->
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
-         
-          <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-       
-          <a  href="/"><img class="img" src="https://image.shutterstock.com/image-vector/emergency-fund-vector-flat-illustration-600w-1772644634.jpg"></a>
-          
-          <a class="nav-link link-edit colour" routerLink="." (click)="goToManageCustomer()">Manage Users</a>
-           <a class="nav-link colour" routerLink="." (click)="goToManageTheme()">Theme</a>
-           <a class="nav-link colour"  href="#">&nbsp;&nbsp;AddOn</a>
-           <a class="nav-link colour" href="/admin/getMenu">&nbsp;Menu</a>
-           <div ngbDropdown >
-           <button   type ="button" class="btn btn-danger button-edit btn-warning " id="gfg"
-           ngbDropdownToggle >{{id}}</button>
-           <div style="margin-left: 350px;width:100px;" ngbDropdownMenu="gfg">
-            <button ngbDropdownItem (click)="signout()">Sign Out</button>
-            <button ngbDropdownItem (click)="manageAcc(id)">Manage Profile</button>
-            
-          </div>
-        </div>
- </div>
+  <!--<a class="navbar-brand" href="#">Navbar</a>-->
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+    <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+
+    <a href="/"><img class="img" src="https://image.shutterstock.com/image-vector/emergency-fund-vector-flat-illustration-600w-1772644634.jpg"></a>
+
+    <a class="nav-link link-edit colour" routerLink="." (click)="goToManageCustomer()">Manage Users</a>
+    <a class="nav-link colour" routerLink="." (click)="goToManageTheme()">Theme</a>
+    <a class="nav-link colour" routerLink="." (click)="goToManageAddon()">&nbsp;&nbsp;AddOn</a>
+    <a class="nav-link colour" routerLink="." (click)="goToManageMenu()">&nbsp;Menu</a>
+    <a class="nav-link colour" routerLink="." (click)="goToManageReview(id)">Ratings & Reviews</a>
+    <div ngbDropdown>
+      <button type="button" class="btn btn-danger button-edit btn-warning " id="gfg"
+              ngbDropdownToggle>
+        {{id}}
+      </button>
+      <div style="margin-left: 350px;width:100px;" ngbDropdownMenu="gfg">
+        <button ngbDropdownItem (click)="signout()">Sign Out</button>
+        <button ngbDropdownItem (click)="manageAcc(id)">Manage Profile</button>
+
+      </div>
+    </div>
+  </div>
 </nav>

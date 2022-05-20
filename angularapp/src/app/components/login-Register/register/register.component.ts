@@ -3,6 +3,7 @@ import { RegisterModel } from 'src/app/models/RegisterModel';
 import { AllServiceService } from './../../../services/all-service.service';
 import Swal from 'sweetalert2';
 import { MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 
@@ -15,7 +16,7 @@ import { MatSnackBar} from '@angular/material/snack-bar';
 export class RegisterComponent implements OnInit {
   
 
-  constructor(private _allService:AllServiceService , private matSnackBar:MatSnackBar) { }
+  constructor(private _allService:AllServiceService , private matSnackBar:MatSnackBar , private router:Router) { }
 
   regModel: RegisterModel = {
     userRole : "2" ,
@@ -112,7 +113,8 @@ if(this.regModel.password!=this.ConfirmPassword){
   this._allService.addAdmin({...this.regModel}).subscribe(
     (data :any)=>{
       console.log(data);
-      Swal.fire('Success','Admin "'+this.regModel.email+'" is successfully registered','success');
+      Swal.fire('Success', 'Admin "' + this.regModel.email + '" is successfully registered', 'success');
+      this.router.navigate(['login']);
     },
     (error :any)=>{
       console.log(error);
@@ -128,14 +130,11 @@ else{
   this._allService.addCustomer({...this.regModel}).subscribe(
     (data)=>{
       console.log(data);
-      Swal.fire('Success','User "'+this.regModel.email+'" is successfully registered','success');
+      Swal.fire('Success', 'User "' + this.regModel.email + '" is successfully registered', 'success');
+      this.router.navigate(['login']);
     },
     (err)=>{
-      /*console.log(error);
-      this.matSnackBar.open('Something went wrong !!','',{
-        duration:3000,
-        panelClass: 'custom-css-class'
-      })*/
+      
       console.log(err.error)
               
           Swal.fire({icon: 'error',

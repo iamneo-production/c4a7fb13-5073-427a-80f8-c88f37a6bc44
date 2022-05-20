@@ -9,42 +9,58 @@ import { ThemeModel } from 'src/app/models/ThemeModel';
   styleUrls: ['./theme-list.component.css']
 })
 export class ThemeListComponent implements OnInit {
-id:string;
-themes:ThemeModel[];
-  constructor(private themeservice: ThemeServiceService ,private route : ActivatedRoute ,
-    private router: Router) {}
+
+  themes: ThemeModel[] = [];
+  ths: ThemeModel[];
+  searchValue: string;
+  constructor(private themeservice: ThemeServiceService, private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
-   // this.id=this.route.snapshot.params['id'];
+
     this.gotothemes()
   }
-   private gotothemes(){
-    this.themeservice.getThemeList().subscribe((data ) => {
-      this.themes = data;
+  private gotothemes() {
+    this.themeservice.getThemeList().subscribe((data) => {
       console.log(data);
+      for (let i = 0; i < data.length; i++) {
+
+        this.themes.push(data[i]);
+      }
+      this.ths = this.themes;
       console.log(this.themes);
-      console.log("success");
-      
-      
-      
     })
 
-    
   }
-  ViewTheme(id: string){
+
+  searchItem(e: any) {
+    if (this.searchValue.length == 0) {
+      this.gotothemes();
+    }
+    else {
+      this.themes = this.ths;
+      this.themes = this.themes.filter((item) => {
+        if (item.themeName.toLowerCase().indexOf(this.searchValue.toLowerCase()) != -1) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      })
+    }
+  }
+  ViewTheme(id: string) {
     console.log("in admin/Themedetails");
     this.router.navigate(['admin/viewTheme', id]);
   }
 
-  EditTheme(id: string){
+  EditTheme(id: string) {
     this.router.navigate(['admin/editTheme', id]);
   }
-  DeleteTheme(id: string)
-  {
+  DeleteTheme(id: string) {
     this.router.navigate(['admin/deleteTheme', id]);
   }
-  AddTheme()
-  {
+  AddTheme() {
     this.router.navigate(['admin/addTheme']);
   }
 

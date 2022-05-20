@@ -1,0 +1,34 @@
+<app-admin-nav></app-admin-nav>
+<div style="background-color: rgb(215, 231, 247);height:1000px;">
+
+  <div>
+    <h1 style="text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> Reviews </h1>
+  </div>
+
+  <table class="table table-striped table-bordered"
+         style="margin-top: 10px; margin-left:400px;width:600px;grid-auto-flow: unset;color:rgb(162, 228, 206)">
+    <thead>
+      <tr>
+
+
+        <th class="design1"> Email Id </th>
+        <th class="design1"> Rating </th>
+        <th class="design1"> Review Description </th>
+        <th class="design1"> Date </th>
+
+
+      </tr>
+    </thead>
+    <tbody style="background-color: rgb(241, 245, 237);">
+      <tr *ngFor="let review of reviews">
+
+        <td style="font-family: 'Times New Roman', Times, serif;font-size:large;color:black"> {{review.reviewBy }} </td>
+        <td style="font-family: 'Times New Roman', Times, serif;font-size:large;color:black"> {{review.rating }} </td>
+        <td style="font-family: 'Times New Roman', Times, serif;font-size:large;color:black"> {{review.reviewDes }} </td>
+        <td style="font-family: 'Times New Roman', Times, serif;font-size:large;color:black"> {{review.dateTime}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

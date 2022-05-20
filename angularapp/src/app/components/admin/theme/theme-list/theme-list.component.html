@@ -1,57 +1,51 @@
-<app-admin-nav></app-admin-nav>
-<div style="height:100%;background-color:rgb(186, 186, 233)">
-<br/>
+<div class="w-100 h-100">
+  <app-admin-nav></app-admin-nav>
 
-
-
-
-<img class="img" (click)= "AddTheme()" src="https://cdn-icons-png.flaticon.com/128/1828/1828817.png" style="margin-left: 90px;" >
-    <!-- Code for Users list -->
-    <br/>
-   
-    <table
-      class="usertable"
-      style="margin-top: 10px; margin-left:90px;width:1200px;"
-    >
-   
-      <!-- Table for headings -->
-      <tr
-      
-        style="
-          background-color: rgb(105, 46, 4);
-          max-width:max-content ;
-          height: 50px;
-         
-        "
-      >
-        <th ><h3 style="text-align: left;margin-left: 50px;color: aliceblue;">Image</h3></th>
-        <th><h3 style="text-align:center;color: aliceblue;">Themename</h3></th>
-        <th ><h3 style="text-align: right;margin-right: 200px;color: aliceblue;">Actions</h3></th>
-      </tr>
-  
-      <br />
-  
-     
-  
-      <tr *ngFor = "let theme of themes"  style="background-color:rgb(248, 250, 249);">
-        <td >
-          <img
-         
-            src={{theme.imageUrl}}
-            style="width: 90px; height: 90px; margin-top: 9px; margin-bottom: 9px;margin-left: 50px;"
-          />
-        </td>
-        <td style="font-size: 30px;text-align:center ;">{{theme.themeName}}</td>
-    
-        <td style="text-align:end;margin-right:20px;">
-          
-           <img  (click) = "EditTheme(theme.id)" src="https://img.icons8.com/cotton/2x/edit.png"  style="width: 80px;height: 40px;margin-right: 100px;">
-        
-            <img (click) = "DeleteTheme(theme.id)"   src="https://img.icons8.com/stickers/2x/filled-trash.png" style="width: 80px;height: 40px;margin-right: 80px;">
-            <img (click) = "ViewTheme(theme.id)"  src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/2x/external-view-cyber-security-kiranshastry-lineal-color-kiranshastry-3.png" style="width: 80px;height: 50px;margin-right: 60px;">
-          </td>
-      </tr>
-
-    </table>
+  <div class="my-4 d-flex flex-row justify-content-around">
+    <div class="w-50 mx-5 d-flex">
+      <input type="text" class="form-control mx-2" placeholder="Search Item" [(ngModel)]="searchValue" name="searchValue">
+      <button class="btn btn-link btn-set" (click)="searchItem($event)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+        </svg>
+      </button>
+    </div>
+    <button class="btn-danger pd d-flex" (click)="AddTheme()">
+      <p>Add Theme</p>
+    </button>
   </div>
-   
+
+  <div class="container-fluid">
+    <div class="card w-25 my-3 mx-5" *ngFor="let theme of themes">
+      <div class="card-body">
+        <img src="{{theme.imageUrl}}" alt="{{theme.themeName}}" class="card-img-top img-height">
+        <h5 class="card-title">{{theme.themeName}}</h5>
+
+        <div class="d-flex">
+          <p class="card-text w-75">Rs - {{theme.themeCost}}</p>
+          <button class="btn btn-primary d-flex justify-content-center align-items-center mx-1" (click)="EditTheme(theme.id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+            </svg>
+          </button>
+          <button class="btn btn-danger d-flex justify-content-center align-items-center mx-1" (click)="DeleteTheme(theme.id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+              <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+            </svg>
+          </button>
+          <button class="btn btn-danger d-flex justify-content-center align-items-center mx-1" (click)="ViewTheme(theme.id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+              <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

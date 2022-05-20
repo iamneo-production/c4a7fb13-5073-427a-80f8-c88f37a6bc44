@@ -11,14 +11,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-  //id:string='';
+ 
   customers : Auth[]=[] ;
 
   constructor(private _allService: AllServiceService ,private route : ActivatedRoute ,
     private router: Router) {}
 
   ngOnInit(): void {
-    //this.id=this.route.snapshot.params['id'];
+ 
     this.getCustomers();
   }
   private gets()
@@ -47,19 +47,11 @@ export class CustomerListComponent implements OnInit {
     this.router.navigate(['admin/viewCustomer', id]);
   }
 
- /* UpdateCustomer(id: string){
-    this.router.navigate(['admin/editCustomer', id]);
-  }*/
   DeleteCustomer(id: string)
   {
     this.router.navigate(['admin/deleteCustomer', id]);
   }
 
- /*DeleteCustomer(id: string){
-    this._allService.deleteCustomer(id).subscribe( (data :any) => {
-      console.log(data);
-      this.getCustomers();
-    })
-  }*/
+ 
 
 }
